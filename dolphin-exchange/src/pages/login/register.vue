@@ -18,12 +18,20 @@
           </view>
 				</view>
 			</view>
+      <view class="uni-form-item uni-column">
+				<view class="title">推荐人ID (选填）</view>
+				<input class="uni-input" focus placeholder="请输入推荐人ID" />
+			</view>
+      <view class="register_check">
+        <label class="check_label">
+          <image src="../../static/icons/icon_logon_select.png" class="icon_select"></image><span>我同意Dnns交易所的</span><span class="lopgin_span" @click="login()">服务协议</span>
+        </label>
+      </view>
       <view class="logon_btnSec">
-        <button class="logon_btn" type="default">登录</button>
+        <button class="logon_btn" @click="register_code()" type="default">登录</button>
       </view>
       <view class="logon_click">
-        <view class="log_forgot" @click="forget()">忘记密码？</view>
-        <view class="log_reg">还没有账户 <span @click="register()">去注册</span></view>
+        <view class="log_reg">已有账户 <span @click="login()">去登录</span></view>
       </view>
 		</view>
   </view>
@@ -36,14 +44,14 @@ export default {
     }
   },
   methods:{
-    forget(){
+    login(){
       uni.navigateTo({
-        url: 'forget'
+        url: 'login'
       })
     },
-    register(){
+    register_code(){
       uni.navigateTo({
-        url: 'register'
+        url: 'register_code'
       })
     },
     changePassword: function() {
@@ -97,9 +105,33 @@ export default {
           }
         }
       }
+      &:nth-child(3){
+        .uni-input{
+          margin-bottom: 16px;
+        }
+      }
+    }
+    .register_check{
+      .check_label{
+        font-weight:300;
+        color:rgba(102,102,102,1);
+        font-size: 12px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        .icon_select{
+          width: 12px;
+          height: 12px;
+          margin-right: 6px;
+        }
+        span.lopgin_span{
+          color:rgba(0,101,147,1);
+          margin-left: 6px;
+        }
+      }
     }
     .logon_btnSec{
-      padding-top: 12px;
+      padding-top: 24px;
       .logon_btn{
         border:1px solid rgba(0,101,147,0.8);
         border-radius:2px;
@@ -118,19 +150,11 @@ export default {
       justify-content:center;
       align-items:center;
       flex-flow:column;
-      margin-top: 25px;
-      .log_forgot{
-        font-size:14px;
-        font-weight:300;
-        color:rgba(0,101,147,1);
-        line-height:24px;
-      }
+      margin-top: 16px;
       .log_reg{
         font-size:14px;
         font-weight:300;
         color:rgba(102,102,102,1);
-        line-height:24px;
-        margin-top: 12px;
         span{
           color:rgba(0,101,147,1);
           margin-left: 6px;
