@@ -24,7 +24,12 @@
 			</view>
       <view class="register_check">
         <label class="check_label">
-          <image src="../../static/icons/icon_logon_select.png" class="icon_select"></image><span>我同意Dnns交易所的</span><span class="lopgin_span" @click="login()">服务协议</span>
+          <span>
+            <image src="../../static/icons/icon_logon_select.png" class="icon_select"></image>
+            <image src="../../static/icons/icon_logon_selected.png" class="icon_select"></image>
+          </span>
+          <span>我同意Dnns交易所的</span>
+          <span class="lopgin_span" @click="login()">服务协议</span>
         </label>
       </view>
       <view class="logon_btnSec">
