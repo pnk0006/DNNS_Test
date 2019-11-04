@@ -24,9 +24,9 @@
 			</view>
       <view class="register_check">
         <label class="check_label">
-          <span>
-            <image src="../../static/icons/icon_logon_select.png" class="icon_select"></image>
-            <image src="../../static/icons/icon_logon_selected.png" class="icon_select"></image>
+          <span class="checkImg" @click="selectedCheck()">
+            <image v-if="!selected" src="../../static/icons/icon_logon_select.png" class="icon_select"></image>
+            <image v-else src="../../static/icons/icon_logon_selected.png" class="icon_select"></image>
           </span>
           <span>我同意Dnns交易所的</span>
           <span class="lopgin_span" @click="login()">服务协议</span>
@@ -46,6 +46,7 @@ export default {
   data(){
     return{
       showPassword: true,
+      selected: true,
     }
   },
   methods:{
@@ -62,6 +63,9 @@ export default {
     changePassword: function() {
       this.showPassword = !this.showPassword;
     },
+    selectedCheck(){
+      this.selected = !this.selected;
+    }
   }
 }
 </script>
@@ -124,10 +128,13 @@ export default {
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        .icon_select{
-          width: 12px;
-          height: 12px;
-          margin-right: 6px;
+        .checkImg{
+          display: flex;
+          .icon_select{
+            width: 12px;
+            height: 12px;
+            margin-right: 6px;
+          }
         }
         span.lopgin_span{
           color:rgba(0,101,147,1);
