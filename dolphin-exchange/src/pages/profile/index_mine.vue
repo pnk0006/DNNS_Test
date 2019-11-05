@@ -77,7 +77,7 @@
     </view>
 
     <view class="profile_list mt-10">
-      <view class="firstlist">
+      <view class="firstlist pb-10">
         <view class="list_item br-b">
           <span>
             <image src="../../static/icons/icon_user_status.png" class="icon_lft"></image>
@@ -196,7 +196,6 @@ export default {
       margin-top: (30px/3);
     }
     .firstlist{
-      padding-bottom: (30px/3);
       .list_item{
         display: flex;
         justify-content: space-between;
@@ -237,6 +236,9 @@ export default {
             height: (32px/2);
           }
         }
+      }
+      &.pb-10{
+        padding-bottom: (30px/3);
       }
     }
   }

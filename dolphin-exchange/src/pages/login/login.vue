@@ -19,7 +19,7 @@
 				</view>
 			</view>
       <view class="logon_btnSec">
-        <button class="logon_btn" type="default">登录</button>
+        <button class="logon_btn" @click="login()" type="default">登录</button>
       </view>
       <view class="logon_click">
         <view class="log_forgot" @click="forget()">忘记密码？</view>
@@ -45,6 +45,11 @@ export default {
       uni.navigateTo({
         url: 'register'
       })
+    },
+    login(){
+      uni.switchTab({
+        url: '../profile/index_mine'
+      });
     },
     changePassword: function() {
       this.showPassword = !this.showPassword;

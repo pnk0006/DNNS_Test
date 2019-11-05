@@ -47,6 +47,15 @@
 					"titleNView": true
 				}
 			}
+		},
+    {
+			"path": "pages/wallet/index_wallet",
+			"style": {
+				"navigationStyle" : "custom", //隐藏导航栏
+				"app-plus": {
+					"titleNView": false
+				}
+			}
 		}
 	],
 	"globalStyle": {
@@ -58,7 +67,6 @@
   "tabBar": {
     "backgroundColor" : "#fff",
     "color" : "#999999",
-    "borderStyle": "none",
     "selectedColor" : "#0684f0",
     "list": [
       // {
@@ -84,9 +92,9 @@
         "selectedIconPath": "static/icons/tab_trade_blue.png",
         "text": "交易"
       }, {
-        "pagePath": "",
+        "pagePath": "pages/wallet/index_wallet",
         "iconPath": "static/icons/tab_optional_gray.png",
-        "selectedIconPath": "static/icon/tab_optional_blue.png",
+        "selectedIconPath": "static/icons/tab_optional_blue.png",
         "text": "资金"
       },
       {
