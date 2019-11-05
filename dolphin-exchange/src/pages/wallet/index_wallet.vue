@@ -1,7 +1,7 @@
 <template>
 <view class="dnns_wallet">
   <view class="uni-padding-wrap uni-common-mt wallet_head">
-    <uni-segmented-control :current="current" :values="items" :style-type="styleType" :active-color="activeColor" class="text" @clickItem="onClickItem" />
+    <uni-segmented-control :current="current" :values="items" :style-type="styleType" :active-color="activeColor" @clickItem="onClickItem" />
   </view>
   <view class="content dnns_cntnt">
     <view v-show="current === 0" class="dnns_show">
@@ -45,7 +45,7 @@
             <image src="../../static/icons/icon_optional_sort.png" class="icon_view"></image>
           </view>
         </view>
-        <view class="head view_list" v-for="(item, index) in btcList" :key="index">
+        <view class="br_b view_list" v-for="(item, index) in btcList" :key="index">
           <view class="left">
             <image :src="item.img" class="icon_currency"></image>
             <span class="title">{{item.title}}</span>
@@ -66,7 +66,7 @@
             </span>
             <span class="right_show">
               <image src="../../static/icons/icon_optional_ensure.png" class="icon_dlr"></image>
-              <span class="text">保证金</span>
+              <span class="text">保证金 0 HT</span>
             </span>
           </view>
           <view class="mid">
@@ -142,21 +142,10 @@ export default {
         }
       ],
       items: ['币币账户', '法币账户'],
-      styles: [{
-          value: 'button',
-          text: '按钮',
-          checked: true
-        },
-        {
-          value: 'text',
-          text: '文字'
-        }
-      ],
-      colors: ['#007aff', '#4cd964', '#dd524d'],
+      activeColor: '#333333',
+			styleType: 'text',
       current: 0,
       colorIndex: 0,
-      activeColor: '#007aff',
-      styleType: 'button'
     }
   },
   methods: {
@@ -187,10 +176,20 @@ export default {
     align-items: center;
     height: (132px/3);
     text-align: center;
+    background: #ffffff;
     .text{
-      font-size:(48px/3);
-      font-weight:400;
-      color:rgba(153,153,153,1);
+      .segmented-control-item{
+        font-size:(48px/3);
+        font-weight:400;
+        color:rgba(153,153,153,1);
+        &.text{
+          color:rgba(153,153,153,1);
+        }
+        &.active{
+          color: rgba(51,51,51,1);
+          font-weight:600;
+        }
+      }
     }
   }
   .dnns_cntnt{
@@ -235,7 +234,7 @@ export default {
                 font-size:(36px/3);
                 font-weight:400;
                 color:rgba(153,153,153,1);
-                margin-right: 4px;
+                margin-left: 4px;
                 text-align: right;
               }
             }
@@ -247,6 +246,7 @@ export default {
               color:rgba(51,51,51,1);
               letter-spacing: 1px;
               text-align: left;
+              margin-top: (50px/3);
             }
           }
           .btm{
@@ -288,6 +288,7 @@ export default {
       }
       .dnns_btcList{
         margin-top: (30px/3);
+        border-bottom: 1px solid rgba(236,236,236,1);
         .view_list{
           background: #ffffff;
           padding-left: (56px/3);
@@ -296,7 +297,26 @@ export default {
           justify-content: space-between;
           align-items: center;
           height: (160px/3);
-          border: 1px solid rgba(236,236,236,1);
+          position: relative;
+          &.head{
+            border-bottom: 1px solid rgba(236,236,236,1);
+          }
+          &.br_b{
+            &::after{
+              content: "";
+              width: 95%;
+              height: 1px;
+              position: absolute;
+              bottom: 0px;
+              left: 2.5%;
+              background: rgba(236,236,236,1);
+            }
+            &:nth-child(6){
+              &::after{
+                display: none;
+              }
+            }
+          }
           .left{
             display: flex;
             align-items: center;

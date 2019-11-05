@@ -76,18 +76,18 @@
       //   "text": "首页"
       // },
       {
-        "pagePath": "",
+        "pagePath": "pages/wallet/index_wallet",
         "iconPath": "static/icons/tab_home_gray.png",
         "selectedIconPath": "static/icons/tab_home_blue.png",
         "text": "首页"
       },
       {
-        "pagePath": "",
+        "pagePath": "pages/wallet/index_wallet",
         "iconPath": "static/icons/tab_price_gray.png",
         "selectedIconPath": "static/icons/tab_price_blue.png",
         "text": "行情"
       }, {
-        "pagePath": "",
+        "pagePath": "pages/wallet/index_wallet",
         "iconPath": "static/icons/tab_trade_gray.png",
         "selectedIconPath": "static/icons/tab_trade_blue.png",
         "text": "交易"
